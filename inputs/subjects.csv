@@ -1,0 +1,9 @@
+group_id,subject_id,subject_name,lecture_hours,practice_hours,requires_subgroups
+1,101,Mathematics,20,15,yes
+1,102,Physics,15,10,no
+2,201,Programming,25,20,yes
+2,202,Data Science,20,15,no
+3,301,Chemistry,15,10,no
+3,302,Biology,20,15,yes
+4,401,History,20,10,no
+4,402,Philosophy,15,10,no
