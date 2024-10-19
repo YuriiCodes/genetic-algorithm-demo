@@ -5,7 +5,6 @@ from entities.group import Group
 from entities.lecturer import Lecturer
 from entities.subject import Subject
 from genetic_scheduler import GeneticScheduler
-from utils.initialize_timetable import initialize_timetable
 
 
 
@@ -25,7 +24,7 @@ def main():
     classrooms = [Classroom(row['classroom_id'], row['capacity']) for _, row in classrooms_df.iterrows()]
 
     # Ініціалізація генетичного алгоритму
-    scheduler = GeneticScheduler(groups, subjects, lecturers, classrooms, pop_size=10, generations=50,
+    scheduler = GeneticScheduler(groups, subjects, lecturers, classrooms, pop_size=10, generations=100,
                                  mutation_rate=0.2)
 
     # Виконання генетичного алгоритму
