@@ -1,6 +1,6 @@
 import random
 from entities.session import Session
-from utils.initialize_timetable import initialize_timetable
+from utils.initialize_timetable import initialize_balanced_timetable
 
 
 class GeneticScheduler:
@@ -35,7 +35,7 @@ class GeneticScheduler:
         Ініціалізація початкової популяції розкладів.
         Створює задану кількість розкладів у популяції.
         """
-        return [initialize_timetable(self.groups, self.subjects, self.lecturers, self.classrooms) for _ in range(self.pop_size)]
+        return [initialize_balanced_timetable(self.groups, self.subjects, self.lecturers, self.classrooms) for _ in range(self.pop_size)]
 
     def crossover(self, parent1, parent2):
         """

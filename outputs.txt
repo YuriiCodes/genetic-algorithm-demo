@@ -1,0 +1,148 @@
+Generation 1, Best fitness: 14
+Generation 2, Best fitness: 14
+Generation 3, Best fitness: 14
+Generation 4, Best fitness: 15
+Generation 5, Best fitness: 15
+Resetting population to avoid local optima...
+Generation 6, Best fitness: 15
+Generation 7, Best fitness: 15
+Generation 8, Best fitness: 16
+Generation 9, Best fitness: 16
+Generation 10, Best fitness: 18
+Resetting population to avoid local optima...
+Generation 11, Best fitness: 14
+Generation 12, Best fitness: 18
+Generation 13, Best fitness: 18
+Generation 14, Best fitness: 18
+Generation 15, Best fitness: 18
+Generation 16, Best fitness: 19
+Resetting population to avoid local optima...
+Generation 17, Best fitness: 15
+Generation 18, Best fitness: 19
+Generation 19, Best fitness: 19
+Generation 20, Best fitness: 19
+Generation 21, Best fitness: 19
+Generation 22, Best fitness: 19
+Resetting population to avoid local optima...
+Generation 23, Best fitness: 14
+Generation 24, Best fitness: 19
+Generation 25, Best fitness: 19
+Generation 26, Best fitness: 19
+Generation 27, Best fitness: 19
+Generation 28, Best fitness: 19
+Resetting population to avoid local optima...
+Generation 29, Best fitness: 13
+Generation 30, Best fitness: 19
+Generation 31, Best fitness: 19
+Generation 32, Best fitness: 19
+Generation 33, Best fitness: 19
+Generation 34, Best fitness: 19
+Resetting population to avoid local optima...
+Generation 35, Best fitness: 13
+Generation 36, Best fitness: 19
+Generation 37, Best fitness: 19
+Generation 38, Best fitness: 20
+Generation 39, Best fitness: 20
+Generation 40, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 41, Best fitness: 13
+Generation 42, Best fitness: 20
+Generation 43, Best fitness: 20
+Generation 44, Best fitness: 20
+Generation 45, Best fitness: 20
+Generation 46, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 47, Best fitness: 16
+Generation 48, Best fitness: 20
+Generation 49, Best fitness: 20
+Generation 50, Best fitness: 20
+Generation 51, Best fitness: 20
+Generation 52, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 53, Best fitness: 14
+Generation 54, Best fitness: 20
+Generation 55, Best fitness: 20
+Generation 56, Best fitness: 20
+Generation 57, Best fitness: 20
+Generation 58, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 59, Best fitness: 14
+Generation 60, Best fitness: 20
+Generation 61, Best fitness: 20
+Generation 62, Best fitness: 20
+Generation 63, Best fitness: 20
+Generation 64, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 65, Best fitness: 14
+Generation 66, Best fitness: 20
+Generation 67, Best fitness: 20
+Generation 68, Best fitness: 20
+Generation 69, Best fitness: 20
+Generation 70, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 71, Best fitness: 14
+Generation 72, Best fitness: 20
+Generation 73, Best fitness: 20
+Generation 74, Best fitness: 20
+Generation 75, Best fitness: 20
+Generation 76, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 77, Best fitness: 15
+Generation 78, Best fitness: 20
+Generation 79, Best fitness: 20
+Generation 80, Best fitness: 20
+Generation 81, Best fitness: 20
+Generation 82, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 83, Best fitness: 14
+Generation 84, Best fitness: 20
+Generation 85, Best fitness: 20
+Generation 86, Best fitness: 20
+Generation 87, Best fitness: 20
+Generation 88, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 89, Best fitness: 13
+Generation 90, Best fitness: 20
+Generation 91, Best fitness: 20
+Generation 92, Best fitness: 20
+Generation 93, Best fitness: 20
+Generation 94, Best fitness: 20
+Resetting population to avoid local optima...
+Generation 95, Best fitness: 14
+Generation 96, Best fitness: 20
+Generation 97, Best fitness: 20
+Generation 98, Best fitness: 20
+Generation 99, Best fitness: 20
+Generation 100, Best fitness: 20
+Resetting population to avoid local optima...
+
+Monday
+  Period 1: [Session(Group: 7, Subject: Health Education, Lecturer: Prof. Moore, Classroom: 2, Day: Monday, Period: 1, Type: lecture), Session(Group: 9, Subject: Economics, Lecturer: Dr. Clark, Classroom: 8, Day: Monday, Period: 1, Type: practice), Session(Group: 3, Subject: Chemistry, Lecturer: Prof. Taylor, Classroom: 1, Day: Monday, Period: 1, Type: lecture), Session(Group: 2, Subject: Programming, Lecturer: Dr. Walker, Classroom: 9, Day: Monday, Period: 1, Type: practice)]
+  Period 2: [Session(Group: 5, Subject: English, Lecturer: Dr. Wilson, Classroom: 8, Day: Monday, Period: 2, Type: practice), Session(Group: 8, Subject: Computer Science, Lecturer: Dr. Clark, Classroom: 2, Day: Monday, Period: 2, Type: practice)]
+  Period 3: [Session(Group: 10, Subject: Environmental Science, Lecturer: Dr. Clark, Classroom: 3, Day: Monday, Period: 3, Type: practice)]
+  Period 4: [Session(Group: 6, Subject: Art, Lecturer: Dr. Wilson, Classroom: 9, Day: Tuesday, Period: 1, Type: lecture)]
+
+Tuesday
+  Period 1: [Session(Group: 7, Subject: Physical Education, Lecturer: Dr. Wilson, Classroom: 3, Day: Tuesday, Period: 1, Type: lecture), Session(Group: 6, Subject: Music, Lecturer: Prof. Moore, Classroom: 8, Day: Tuesday, Period: 1, Type: lecture), Session(Group: 10, Subject: Environmental Science, Lecturer: Dr. Clark, Classroom: 5, Day: Tuesday, Period: 1, Type: practice), Session(Group: 3, Subject: Chemistry, Lecturer: Dr. Smith, Classroom: 10, Day: Tuesday, Period: 1, Type: practice)]
+  Period 2: [Session(Group: 1, Subject: Mathematics, Lecturer: Prof. Taylor, Classroom: 10, Day: Tuesday, Period: 2, Type: lecture), Session(Group: 9, Subject: Political Science, Lecturer: Prof. Lewis, Classroom: 8, Day: Tuesday, Period: 2, Type: lecture)]
+  Period 3: [Session(Group: 4, Subject: History, Lecturer: Prof. Taylor, Classroom: 8, Day: Tuesday, Period: 3, Type: practice)]
+  Period 4: [Session(Group: 4, Subject: Philosophy, Lecturer: Dr. Brown, Classroom: 9, Day: Tuesday, Period: 4, Type: practice)]
+
+Wednesday
+  Period 1: [Session(Group: 7, Subject: Physical Education, Lecturer: Dr. Wilson, Classroom: 6, Day: Wednesday, Period: 1, Type: practice), Session(Group: 8, Subject: Robotics, Lecturer: Prof. Lewis, Classroom: 8, Day: Wednesday, Period: 1, Type: lecture), Session(Group: 3, Subject: Biology, Lecturer: Prof. Johnson, Classroom: 9, Day: Wednesday, Period: 1, Type: lecture), Session(Group: 4, Subject: Philosophy, Lecturer: Dr. Brown, Classroom: 5, Day: Wednesday, Period: 1, Type: practice), Session(Group: 5, Subject: Geography, Lecturer: Prof. Moore, Classroom: 3, Day: Wednesday, Period: 1, Type: lecture)]
+  Period 2: [Session(Group: 3, Subject: Chemistry, Lecturer: Prof. Taylor, Classroom: 8, Day: Wednesday, Period: 2, Type: practice)]
+  Period 3: [Session(Group: 5, Subject: Geography, Lecturer: Prof. Moore, Classroom: 9, Day: Wednesday, Period: 3, Type: lecture)]
+  Period 4: [Session(Group: 1, Subject: Physics, Lecturer: Prof. Hall, Classroom: 10, Day: Tuesday, Period: 1, Type: lecture)]
+
+Thursday
+  Period 1: [Session(Group: 9, Subject: Political Science, Lecturer: Prof. Lewis, Classroom: 9, Day: Thursday, Period: 1, Type: lecture), Session(Group: 6, Subject: Art, Lecturer: Dr. Wilson, Classroom: 2, Day: Thursday, Period: 1, Type: practice), Session(Group: 8, Subject: Computer Science, Lecturer: Dr. Clark, Classroom: 8, Day: Thursday, Period: 1, Type: lecture), Session(Group: 2, Subject: Data Science, Lecturer: Prof. Johnson, Classroom: 6, Day: Thursday, Period: 1, Type: lecture), Session(Group: 4, Subject: History, Lecturer: Dr. Brown, Classroom: 3, Day: Thursday, Period: 1, Type: lecture)]
+  Period 2: [Session(Group: 7, Subject: Health Education, Lecturer: Prof. Moore, Classroom: 3, Day: Thursday, Period: 2, Type: lecture), Session(Group: 10, Subject: Statistics, Lecturer: Prof. Lewis, Classroom: 8, Day: Thursday, Period: 2, Type: lecture)]
+  Period 3: [Session(Group: 6, Subject: Art, Lecturer: Dr. Wilson, Classroom: 9, Day: Thursday, Period: 3, Type: lecture)]
+  Period 4: [Session(Group: 1, Subject: Physics, Lecturer: Prof. Johnson, Classroom: 2, Day: Tuesday, Period: 3, Type: lecture)]
+
+Friday
+  Period 1: [Session(Group: 9, Subject: Economics, Lecturer: Dr. Clark, Classroom: 8, Day: Friday, Period: 1, Type: lecture), Session(Group: 10, Subject: Statistics, Lecturer: Prof. Lewis, Classroom: 10, Day: Friday, Period: 1, Type: lecture), Session(Group: 4, Subject: History, Lecturer: Dr. Walker, Classroom: 2, Day: Friday, Period: 1, Type: practice)]
+  Period 2: [Session(Group: 8, Subject: Computer Science, Lecturer: Dr. Clark, Classroom: 8, Day: Friday, Period: 2, Type: lecture)]
+  Period 3: [Session(Group: 6, Subject: Art, Lecturer: Dr. Wilson, Classroom: 10, Day: Friday, Period: 3, Type: practice)]
+  Period 4: [Session(Group: 8, Subject: Computer Science, Lecturer: Dr. Clark, Classroom: 8, Day: Monday, Period: 4, Type: lecture)]
+
