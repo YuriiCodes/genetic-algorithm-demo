@@ -3,3 +3,9 @@ lecturer_id,lecturer_name,subject_ids,can_teach_lecture,can_teach_practice
 2,Prof. Johnson,"102,202,302",yes,no
 3,Dr. Brown,"401,402",yes,yes
 4,Prof. Taylor,"101,301,401",yes,yes
+5,Dr. Wilson,"501,601,701",yes,yes
+6,Prof. Moore,"502,602,702",yes,no
+7,Dr. Clark,"801,901,1001",yes,yes
+8,Prof. Lewis,"802,902,1002",yes,no
+9,Dr. Walker,"101,201,301,401",yes,yes
+10,Prof. Hall,"102,202,302,402",yes,no

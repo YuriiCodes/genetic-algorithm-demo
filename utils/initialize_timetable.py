@@ -21,12 +21,16 @@ def find_suitable_classroom(classrooms, capacity):
     return random.choice(suitable_classrooms) if suitable_classrooms else None
 
 
-def find_empty_slot(timetable):
+def find_empty_slot_for_lecturer(timetable, lecturer, classroom):
+    """
+    Пошук вільного слоту, враховуючи зайнятість викладача і аудиторії.
+    """
     for day in DAYS:
         for period in range(1, PERIODS + 1):
-            if not timetable[day][period]:
+            # Перевіряємо, чи вже зайнятий викладач або аудиторія в даний час
+            if all(session.lecturer != lecturer for session in timetable[day][period]) and \
+               all(session.classroom != classroom for session in timetable[day][period]):
                 return day, period
-    print("Warning: No empty slot available")
     return None, None
 
 
@@ -40,12 +44,12 @@ def initialize_timetable(groups, subjects, lecturers, classrooms):
             if lecturer:
                 classroom = find_suitable_classroom(classrooms, group.students)
                 if classroom:
-                    day, period = find_empty_slot(timetable)
+                    day, period = find_empty_slot_for_lecturer(timetable, lecturer, classroom)
                     if day and period:
                         session = Session(group, subject, lecturer, classroom, day, period, 'lecture')
                         timetable[day][period].append(session)
 
-                        if(ENABLE_EXTRA_LOGS):
+                        if ENABLE_EXTRA_LOGS:
                             print(f"Scheduled: {session}")
 
             # Практичні заняття
@@ -53,14 +57,12 @@ def initialize_timetable(groups, subjects, lecturers, classrooms):
             if lecturer:
                 classroom = find_suitable_classroom(classrooms, group.students // 2)  # для підгрупи
                 if classroom:
-                    day, period = find_empty_slot(timetable)
+                    day, period = find_empty_slot_for_lecturer(timetable, lecturer, classroom)
                     if day and period:
                         session = Session(group, subject, lecturer, classroom, day, period, 'practice')
                         timetable[day][period].append(session)
 
-                        if (ENABLE_EXTRA_LOGS):
+                        if ENABLE_EXTRA_LOGS:
                             print(f"Scheduled: {session}")
 
     return timetable
-
-

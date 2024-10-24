@@ -7,3 +7,15 @@ group_id,subject_id,subject_name,lecture_hours,practice_hours,requires_subgroups
 3,302,Biology,20,15,yes
 4,401,History,20,10,no
 4,402,Philosophy,15,10,no
+5,501,English,25,20,yes
+5,502,Geography,20,15,no
+6,601,Art,15,10,no
+6,602,Music,20,15,yes
+7,701,Physical Education,20,10,no
+7,702,Health Education,15,10,no
+8,801,Computer Science,25,20,yes
+8,802,Robotics,20,15,no
+9,901,Economics,15,10,no
+9,902,Political Science,20,15,yes
+10,1001,Environmental Science,20,10,no
+10,1002,Statistics,15,10,no
