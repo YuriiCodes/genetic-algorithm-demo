@@ -20,20 +20,24 @@ def find_suitable_classroom(classrooms, capacity):
 
 import random
 
-def find_balanced_slot(timetable, lecturer, classroom):
+def find_balanced_slot(timetable, lecturer, classroom, group):
     """
-    Пошук вільного слоту з урахуванням рівномірного розподілу занять.
-    Повертає день і період, враховуючи зайнятість викладача та аудиторії.
+    Пошук вільного слоту, враховуючи зайнятість викладача, аудиторії та групи.
+    Повертає день і період, враховуючи жорсткі обмеження.
     """
     day_counts = {day: sum(len(timetable[day][period]) for period in timetable[day]) for day in DAYS}
     sorted_days = sorted(day_counts, key=day_counts.get)  # Сортуємо дні за кількістю занять
 
     for day in sorted_days:
         for period in range(1, PERIODS + 1):
+            # Перевіряємо, чи вже зайняті викладач, аудиторія або група в даний час
             if all(session.lecturer != lecturer for session in timetable[day][period]) and \
-               all(session.classroom != classroom for session in timetable[day][period]):
+               all(session.classroom != classroom for session in timetable[day][period]) and \
+               all(session.group != group for session in timetable[day][period]):
                 return day, period
     return None, None
+
+
 
 
 def initialize_balanced_timetable(groups, subjects, lecturers, classrooms):
@@ -51,7 +55,7 @@ def initialize_balanced_timetable(groups, subjects, lecturers, classrooms):
             if lecturer:
                 classroom = find_suitable_classroom(classrooms, group.students)
                 if classroom:
-                    day, period = find_balanced_slot(timetable, lecturer, classroom)
+                    day, period = find_balanced_slot(timetable, lecturer, classroom, group)
                     if day and period:
                         session = Session(group, subject, lecturer, classroom, day, period, 'lecture')
                         timetable[day][period].append(session)
@@ -64,7 +68,7 @@ def initialize_balanced_timetable(groups, subjects, lecturers, classrooms):
             if lecturer:
                 classroom = find_suitable_classroom(classrooms, group.students // 2)  # для підгрупи
                 if classroom:
-                    day, period = find_balanced_slot(timetable, lecturer, classroom)
+                    day, period = find_balanced_slot(timetable, lecturer, classroom, group)
                     if day and period:
                         session = Session(group, subject, lecturer, classroom, day, period, 'practice')
                         timetable[day][period].append(session)
