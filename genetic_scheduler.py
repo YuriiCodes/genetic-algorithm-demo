@@ -17,17 +17,45 @@ class GeneticScheduler:
         self.reset_counter = 0  # Лічильник для перевірки застрягання на локальних оптимумах
 
     def fitness(self, timetable):
-        """
-        Функція оцінки розкладу.
-        Обчислює кількість занять і зменшує кількість "вікон" у розкладі.
-        """
         score = 0
+        penalty = 0
+        session_count = {}
+
         for day in timetable:
-            # Створюємо список занять у кожний день
-            sessions = [timetable[day][period] for period in range(1, 5) if timetable[day][period]]
-            num_sessions = len(sessions)  # Кількість занять у день
-            num_windows = sum(1 for i in range(len(sessions) - 1) if not sessions[i+1])  # Підрахунок "вікон"
-            score += num_sessions - num_windows  # Оцінка: більше занять, менше "вікон"
+            for period in range(1, 5):
+                if period not in timetable[day]:
+                    continue  # Skip if period is missing
+
+                for session in timetable[day][period]:
+                    group_id = session.group.group_id
+                    subject_id = session.subject.subject_id
+                    session_type = session.session_type
+
+                    # Initialize if not already in the session count dictionary
+                    if group_id not in session_count:
+                        session_count[group_id] = {}
+                    if subject_id not in session_count[group_id]:
+                        session_count[group_id][subject_id] = {"lecture": 0, "practice": 0}
+
+                    # Increment session count based on session type
+                    session_count[group_id][subject_id][session_type] += 1
+
+        # Calculating penalties based on required weekly sessions
+        for group in self.groups:
+            group_id = group.group_id
+            for subject in [s for s in self.subjects if s.group_id == group_id]:
+                subject_id = subject.subject_id
+                required_lectures = 2  # Required lectures per week
+                required_practices = 1 * group.subgroups  # Practices per subgroup
+
+                actual_lectures = session_count.get(group_id, {}).get(subject_id, {}).get("lecture", 0)
+                actual_practices = session_count.get(group_id, {}).get(subject_id, {}).get("practice", 0)
+
+                # Penalize based on the difference between actual and required sessions
+                penalty += abs(actual_lectures - required_lectures)
+                penalty += abs(actual_practices - required_practices)
+
+        score -= penalty  # Higher penalty lowers the fitness score
         return score
 
     def initialize_population(self):
@@ -102,42 +130,42 @@ class GeneticScheduler:
         return False
 
     def run(self):
-        """
-        Основний цикл генетичного алгоритму: ініціалізація популяції, відбір, кросовер, мутація, адаптивне навчання.
-        """
-        population = self.initialize_population()  # Початкова популяція
-        best_score = 0  # Найкращий результат оцінки
-        best_individual = None  # Найкращий розклад
+        population = [initialize_balanced_timetable(self.groups, self.subjects, self.lecturers, self.classrooms)
+                      for _ in range(self.pop_size)]
+        population = [timetable for timetable in population if timetable is not None]  # Filter out None values
+
+        best_score = float('-inf')
+        best_individual = None
 
         for generation in range(self.generations):
-            fitnesses = [self.fitness(timetable) for timetable in population]  # Обчислення fitness для кожної особини
-            max_fitness = max(fitnesses)  # Максимальний fitness у поточному поколінні
+            fitnesses = [self.fitness(timetable) for timetable in population]  # Calculate fitness for each individual
+            max_fitness = max(fitnesses)  # Maximum fitness in the current generation
 
             if max_fitness > best_score:
-                best_score = max_fitness  # Оновлення найкращого score
-                best_individual = population[fitnesses.index(max_fitness)]  # Оновлення найкращого розкладу
+                best_score = max_fitness
+                best_individual = population[fitnesses.index(max_fitness)]
 
-            print(f"Generation {generation + 1}, Best fitness: {max_fitness}")  # Вивід результату
+            print(f"Generation {generation + 1}, Best fitness: {max_fitness}")
 
-            # Повторна ініціалізація популяції при застряганні
             if self.adaptive_mutation(max_fitness, best_score):
-                population = self.initialize_population()
+                population = [initialize_balanced_timetable(self.groups, self.subjects, self.lecturers, self.classrooms)
+                              for _ in range(self.pop_size)]
+                population = [timetable for timetable in population if timetable is not None]  # Filter out None values
                 continue
 
-            # Елітарний відбір: найкраща особина автоматично переходить у нове покоління
+            # Elitism: carry over the best individual
             new_population = [best_individual]
 
-            # Генерація нового покоління
             while len(new_population) < self.pop_size:
                 parent1 = self.tournament_selection(population, fitnesses)
                 parent2 = self.tournament_selection(population, fitnesses)
                 child = self.crossover(parent1, parent2)
 
-                if random.random() < self.mutation_rate:  # Перевірка на мутацію
+                if random.random() < self.mutation_rate:
                     child = self.mutate(child)
 
                 new_population.append(child)
 
-            population = new_population  # Оновлення популяції для наступного покоління
+            population = new_population  # Update population for next generation
 
-        return best_individual  # Повернення найкращого розкладу після завершення алгоритму
+        return best_individual

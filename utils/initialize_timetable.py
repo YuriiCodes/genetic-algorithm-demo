@@ -39,41 +39,35 @@ def find_balanced_slot(timetable, lecturer, classroom, group):
 
 
 
-
 def initialize_balanced_timetable(groups, subjects, lecturers, classrooms):
     timetable = {day: {period: [] for period in range(1, PERIODS + 1)} for day in DAYS}
 
-    random.shuffle(groups)  # Перемішуємо групи для більш рівномірного розподілу
+    random.shuffle(groups)  # Shuffle groups for balanced distribution
 
     for group in groups:
         group_subjects = [s for s in subjects if s.group_id == group.group_id]
-        random.shuffle(group_subjects)  # Перемішуємо предмети групи для уникнення концентрації
+        random.shuffle(group_subjects)  # Shuffle subjects to avoid concentration
 
         for subject in group_subjects:
-            # Лекції
+            # Attempt to schedule lectures
             lecturer = find_suitable_lecturer(lecturers, subject, session_type='lecture')
             if lecturer:
                 classroom = find_suitable_classroom(classrooms, group.students)
                 if classroom:
                     day, period = find_balanced_slot(timetable, lecturer, classroom, group)
-                    if day and period:
+                    if day is not None and period is not None:
                         session = Session(group, subject, lecturer, classroom, day, period, 'lecture')
                         timetable[day][period].append(session)
 
-                        if ENABLE_EXTRA_LOGS:
-                            print(f"Scheduled: {session}")
-
-            # Практичні заняття
+            # Attempt to schedule practice sessions for subgroups
             lecturer = find_suitable_lecturer(lecturers, subject, session_type='practice')
             if lecturer:
-                classroom = find_suitable_classroom(classrooms, group.students // 2)  # для підгрупи
+                capacity = group.students // group.subgroups if group.subgroups > 1 else group.students
+                classroom = find_suitable_classroom(classrooms, capacity)
                 if classroom:
                     day, period = find_balanced_slot(timetable, lecturer, classroom, group)
-                    if day and period:
+                    if day is not None and period is not None:
                         session = Session(group, subject, lecturer, classroom, day, period, 'practice')
                         timetable[day][period].append(session)
 
-                        if ENABLE_EXTRA_LOGS:
-                            print(f"Scheduled: {session}")
-
-    return timetable
+    return timetable  # Ensure timetable is returned, even i
